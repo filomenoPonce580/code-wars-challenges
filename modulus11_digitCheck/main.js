@@ -1,5 +1,5 @@
 function addCheckDigit(number) {
-    // your code
+
     let factor = 2
     let totals = 0
     let numberArr = number.split('').map((num)=>{
@@ -13,5 +13,8 @@ function addCheckDigit(number) {
       if(factor > 7) factor = 2
     }
     
-    return number + (11 -(totals%11))
+    let remainder = totals % 11
+    
+    if(remainder === 0) return number + remainder
+    return remainder === 1 ? number + "X" : number + (11 - remainder)
 }
