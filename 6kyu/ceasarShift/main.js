@@ -1,31 +1,39 @@
 function encryptor (key, message) {
-    let letters = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
-    let lowerCaseArray = letters.split('')
-    let upperCaseArray = letters.toUpperCase().split('')
-    const specials = /[^A-Za-z 0-9]/g
+    let letters = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz';
+    let lowerCaseArray = letters.split('');
+    let upperCaseArray = letters.toUpperCase().split('');
+    
+    key = key % 26;
     
     if(key === 0 || message === '') return message
     
     if(key > 0){
-      return message.split('').map((character)=>{
-        if(character === ' ' || specials.test(character)) return character
+      return message.split('').map((character) => {
+          if (!character.match(/[A-Za-z]/)) return character;
+  
+          if(character === character.toUpperCase()){ //means character in question is CAP
+            let encryptedIndex = upperCaseArray.indexOf(character) + key;
+            if (encryptedIndex < 0) encryptedIndex += 26;
+            return upperCaseArray[encryptedIndex];
+          } else {
+            let encryptedIndex = lowerCaseArray.indexOf(character) + key;
+            if (encryptedIndex < 0) encryptedIndex += 26;
+            return lowerCaseArray[encryptedIndex];
+          }
+      }).join('');  
+    } else if (key < 0) {
+      return message.split('').map((character) => {
+        if (!character.match(/[A-Za-z]/)) return character;
+  
         if(character === character.toUpperCase()){ //means character in question is CAP
-          return upperCaseArray[upperCaseArray.indexOf(character)+key]
+          let encryptedIndex = upperCaseArray.lastIndexOf(character) + key;
+          if (encryptedIndex < 0) encryptedIndex += 26;
+          return upperCaseArray[encryptedIndex];
         } else {
-          return lowerCaseArray[lowerCaseArray.indexOf(character)+key]
+          let encryptedIndex = lowerCaseArray.lastIndexOf(character) + key;
+          if (encryptedIndex < 0) encryptedIndex += 26;
+          return lowerCaseArray[encryptedIndex];
         }
-      }).join('')
-    } 
-    
-    else if (key < 0) {
-      return message.split('').map((character)=>{
-        if(character === ' ' || specials.test(character)) return character
-        
-        if(character === character.toUpperCase()){ //means character in question is CAP
-          return upperCaseArray[upperCaseArray.lastIndexOf(character)+key]
-        } else {
-          return lowerCaseArray[lowerCaseArray.lastIndexOf(character)+key]
-        }
-      }).join('')
+      }).join(''); 
     }
 }
