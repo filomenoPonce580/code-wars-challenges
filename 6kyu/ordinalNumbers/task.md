@@ -15,13 +15,13 @@ The last two digits determine the ordinal suffix.
 
 Notation for general notation
 
-0  1  2  3  4  5  6  7  8  9
-th st nd rd th th th th th th
-Notation for brief notation
+0  1  2  3  4  5  6  7  8  9  
+th st nd rd th th th th th th  
+Notation for brief notation  
 
-0  1  2  3  4  5  6  7  8  9
-th st d  d th th th th th th
-However, when the last two digits of the number are 11, 12, or 13, th is used instead of st,nd,rd respectively.
+0  1  2  3  4  5  6  7  8  9  
+th st d  d th th th th th th  
+However, when the last two digits of the number are 11, 12, or 13, th is used instead of st,nd,rd respectively.  
 
 ## Examples
 
