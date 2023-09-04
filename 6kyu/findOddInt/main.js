@@ -14,3 +14,8 @@ function findOdd(a) {
       if (integers[nums]%2===1) return Number(nums)
     }
 }
+
+/*
+reduce((a,b) => a ^ b) will cancel out/remove duplicate elements, leaving only odd/non repeating elements
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+*/
