@@ -1,17 +1,11 @@
 function cleanString(s) {
-    let array = s.split('')
-    let deletes = 0
-    let result = [];
-    for(let i = array.length - 1; i >= 0; i--){
-      if(array[i] !== "#"){
-        if (deletes === 0){
-          result.unshift(array[i])
+  const result = []
+	for (const char of s) {
+        if (char === "#") {
+            result.pop()
         } else {
-          deletes --
+            result.push(char)
         }
-      } else if (array[i] === '#'){
-        deletes ++
-      }
     }
-    return result.join('')
+  return result.join("")
 }
