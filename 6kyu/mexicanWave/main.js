@@ -1,13 +1,11 @@
 function wave(str){
-    let result = []
+    let result = [];
     
-    for(let i = 0; i < str.length; i++){
-      let moddedStr = str.split('');
-      if(str[i] !== ' '){
-        moddedStr[i] = moddedStr[i].toUpperCase()
-        result.push(moddedStr.join(''))         
-      }
-    }
+    str.split("").forEach((char, index) => {
+        if (/[a-z]/.test(char)) {
+            result.push(str.slice(0, index) + char.toUpperCase() + str.slice(index + 1));
+        }
+    });
     
-    return result
+    return result;
 }
