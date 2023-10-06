@@ -7,5 +7,5 @@ In this simple Kata your task is to create a function that turns a string into a
 
  2.  If the character in the string is whitespace then pass over it as if it was an empty seat
 ### Example
-`wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]`
+`wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]`  
 Good luck and enjoy!
